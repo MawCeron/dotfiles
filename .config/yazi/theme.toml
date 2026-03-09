@@ -1,0 +1,116 @@
+"$schema" = "https://yazi-rs.github.io/schemas/theme.json"
+
+# ─── Manager ──────────────────────────────────────────────────────────────────
+[mgr]
+cwd = { fg = "#6878a0" }
+
+hovered         = { fg = "#c8d4dc", bg = "#313740", bold = true }
+preview_hovered = { fg = "#c8d4dc", bg = "#292c32" }
+
+find_keyword  = { fg = "#c9a84c", bold = true }
+find_position = { fg = "#5fb3b3", italic = true }
+
+marker_copied   = { fg = "#7ab87a", bg = "#7ab87a" }
+marker_cut      = { fg = "#c96a6a", bg = "#c96a6a" }
+marker_marked   = { fg = "#6878a0", bg = "#6878a0" }
+marker_selected = { fg = "#5fb3b3", bg = "#5fb3b3" }
+
+tab_active   = { fg = "#c8d4dc", bg = "#3d444d", bold = true }
+tab_inactive = { fg = "#5a6570", bg = "#292c32" }
+tab_width    = 1
+
+border_symbol = "│"
+border_style  = { fg = "#3d444d" }
+
+# ─── Status ───────────────────────────────────────────────────────────────────
+[status]
+separator_open  = ""
+separator_close = ""
+separator_style = { fg = "#3d444d", bg = "#1c2127" }
+
+mode_normal  = { fg = "#1c2127", bg = "#6878a0", bold = true }
+mode_select  = { fg = "#1c2127", bg = "#7ab87a", bold = true }
+mode_unset   = { fg = "#1c2127", bg = "#c9a84c", bold = true }
+
+progress_label  = { fg = "#c8d4dc", bold = true }
+progress_normal = { fg = "#6878a0", bg = "#1c2127" }
+progress_error  = { fg = "#c96a6a", bg = "#1c2127" }
+
+permissions_t = { fg = "#6878a0" }
+permissions_r = { fg = "#c9a84c" }
+permissions_w = { fg = "#c96a6a" }
+permissions_x = { fg = "#7ab87a" }
+permissions_s = { fg = "#5a6570" }
+
+# ─── Input ────────────────────────────────────────────────────────────────────
+[input]
+border   = { fg = "#6878a0" }
+title    = { fg = "#95a1aa" }
+value    = { fg = "#c8d4dc" }
+selected = { fg = "#1c2127", bg = "#6878a0" }
+
+# ─── Completion ───────────────────────────────────────────────────────────────
+[completion]
+border   = { fg = "#3d444d" }
+active   = { fg = "#c8d4dc", bg = "#3d444d" }
+inactive = { fg = "#5a6570" }
+
+# ─── Tasks ────────────────────────────────────────────────────────────────────
+[tasks]
+border  = { fg = "#3d444d" }
+title   = { fg = "#95a1aa" }
+hovered = { fg = "#c8d4dc", bg = "#313740", underline = true }
+
+# ─── Which ────────────────────────────────────────────────────────────────────
+[which]
+mask            = { bg = "#1c2127" }
+cand            = { fg = "#6878a0" }
+rest            = { fg = "#5a6570" }
+desc            = { fg = "#c8d4dc" }
+separator       = "  "
+separator_style = { fg = "#3d444d" }
+
+# ─── Notify ───────────────────────────────────────────────────────────────────
+[notify]
+title_info  = { fg = "#7ab87a" }
+title_warn  = { fg = "#c9a84c" }
+title_error = { fg = "#c96a6a" }
+
+icon_info  = ""
+icon_warn  = ""
+icon_error = ""
+
+# ─── Help ─────────────────────────────────────────────────────────────────────
+[help]
+on      = { fg = "#6878a0" }
+exec    = { fg = "#5fb3b3" }
+desc    = { fg = "#c8d4dc" }
+hovered = { fg = "#c8d4dc", bg = "#313740", bold = true }
+footer  = { fg = "#1c2127", bg = "#6878a0" }
+
+# ─── Filetype colors ──────────────────────────────────────────────────────────
+[filetype]
+rules = [
+  # Images
+  { mime = "image/*",      fg = "#5fb3b3" },
+  # Video / Audio
+  { mime = "video/*",      fg = "#8a7ab8" },
+  { mime = "audio/*",      fg = "#8a7ab8" },
+  # Archives
+  { mime = "application/zip",              fg = "#c9a84c" },
+  { mime = "application/gzip",             fg = "#c9a84c" },
+  { mime = "application/x-tar",            fg = "#c9a84c" },
+  { mime = "application/x-bzip*",          fg = "#c9a84c" },
+  { mime = "application/x-7z-compressed",  fg = "#c9a84c" },
+  { mime = "application/x-rar",            fg = "#c9a84c" },
+  { mime = "application/x-xz",             fg = "#c9a84c" },
+  # Docs
+  { mime = "application/pdf",              fg = "#c96a6a" },
+  { mime = "application/msword",           fg = "#6878a0" },
+  { mime = "application/vnd.oasis.*",      fg = "#6878a0" },
+  # Code / text
+  { mime = "text/*",       fg = "#7ab87a" },
+  # Fallback
+  { name = "*",            fg = "#c8d4dc" },
+  { name = "*/",           fg = "#6878a0" },
+]

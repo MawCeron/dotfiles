@@ -1,0 +1,167 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+
+    // ─── Logo ────────────────────────────────────────────────────────────────
+    "logo": {
+        "type": "file",
+        "source": "~/.config/fastfetch/mceron-ascii.txt",
+        "width": 0,
+        "height": 0,
+        "padding": {
+            "top": 1,
+            "left": 2,
+            "bottom": 1
+        },
+        "position": "top"
+    },
+
+    // ─── Display ─────────────────────────────────────────────────────────────
+    "display": {
+        "separator": "  ",
+        "color": {
+            "keys":   "38;2;104;120;160",
+            "title":  "38;2;200;212;220",
+            "output": "38;2;200;212;220"
+        },
+        "key": {
+            "width": 12
+        },
+        "bar": {
+            "charElapsed": "█",
+            "charTotal":   "░",
+            "borderLeft":  "",
+            "borderRight": "",
+            "width": 10
+        }
+    },
+
+    // ─── Modules ─────────────────────────────────────────────────────────────
+    "modules": [
+
+        // ── Header ──────────────────────────────────────────────────────────
+        {
+            "type": "title",
+            "key": "",
+            "format": "\u001b[38;2;200;212;220m{user-name}\u001b[0m \u001b[38;2;61;68;77m@\u001b[0m \u001b[38;2;104;120;160m{host-name}\u001b[0m"
+        },
+        {
+            "type": "separator",
+            "string": "─",
+            "outputColor": "38;2;61;68;77"
+        },
+
+        // ── Sistema ─────────────────────────────────────────────────────────
+        {
+            "type": "os",
+            "key": "  OS",
+            "keyColor": "38;2;104;120;160"
+        },
+        {
+            "type": "kernel",
+            "key": "  Kernel",
+            "keyColor": "38;2;104;120;160"
+        },
+        {
+            "type": "host",
+            "key": "  Host",
+            "keyColor": "38;2;104;120;160",
+            "format": "{name}"
+        },
+        {
+            "type": "uptime",
+            "key": "  Uptime",
+            "keyColor": "38;2;104;120;160"
+        },
+        {
+            "type": "packages",
+            "key": "  Pkgs",
+            "keyColor": "38;2;104;120;160"
+        },
+
+        // ── Desktop ─────────────────────────────────────────────────────────
+        {
+            "type": "wm",
+            "key": "  WM",
+            "keyColor": "38;2;95;179;179"
+        },
+        {
+            "type": "wmtheme",
+            "key": "  Theme",
+            "keyColor": "38;2;95;179;179"
+        },
+        {
+            "type": "icons",
+            "key": "  Icons",
+            "keyColor": "38;2;95;179;179"
+        },
+        {
+            "type": "terminal",
+            "key": "  Term",
+            "keyColor": "38;2;95;179;179"
+        },
+        {
+            "type": "shell",
+            "key": "  Shell",
+            "keyColor": "38;2;95;179;179"
+        },
+        {
+            "type": "font",
+            "key": "  Font",
+            "keyColor": "38;2;95;179;179",
+            "format": "{name} {size}"
+        },
+
+        // ── Hardware ────────────────────────────────────────────────────────
+        {
+            "type": "cpu",
+            "key": "  CPU",
+            "keyColor": "38;2;138;122;184",
+            "showPeCoreCount": true
+        },
+        {
+            "type": "gpu",
+            "key": "  GPU",
+            "keyColor": "38;2;138;122;184",
+            "format": "{name}"
+        },
+        {
+            "type": "memory",
+            "key": "  RAM",
+            "keyColor": "38;2;138;122;184",
+            "format": "{used} / {total}  \u001b[38;2;61;68;77m{used_percent:bar}\u001b[0m"
+        },
+        {
+            "type": "disk",
+            "key": "  Disk",
+            "keyColor": "38;2;138;122;184",
+            "folders": "/",
+            "format": "{used} / {total}  \u001b[38;2;61;68;77m{used_percent:bar}\u001b[0m"
+        },
+        {
+            "type": "battery",
+            "key": "  Battery",
+            "keyColor": "38;2;138;122;184",
+            "format": "{capacity}%  {status}"
+        },
+        {
+            "type": "localip",
+            "key": "  LAN",
+            "keyColor": "38;2;138;122;184",
+            "showIpv4": true,
+            "showIpv6": false,
+            "showLoop": false
+        },
+
+        // ── Footer ──────────────────────────────────────────────────────────
+        {
+            "type": "separator",
+            "string": "─",
+            "outputColor": "38;2;61;68;77"
+        },
+        {
+            "type": "colors",
+            "symbol": "circle",
+            "paddingLeft": 1
+        }
+    ]
+}

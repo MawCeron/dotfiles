@@ -1,0 +1,26 @@
+[[plugin.prepend_fetchers]]
+id   = "git"
+name = "*"
+run  = "git"
+
+[[plugin.prepend_fetchers]]
+id   = "git"
+name = "*/"
+run  = "git"
+
+[plugin]
+  append_previewers = [
+    { name = "*", run = "file-extra-metadata" },
+  ]
+
+  # Setup keybind for spotter: https://github.com/sxyazi/yazi/pull/1802
+  append_spotters = [
+    { name = "*", run = "file-extra-metadata" },
+  ]
+# Setup keybind for spotter: https://github.com/sxyazi/yazi/pull/1802
+  spotters = [
+    # ... the rest
+    # Fallback
+    # { name = "*", run = "file" },
+    { name = "*", run = "file-extra-metadata" },
+  ]

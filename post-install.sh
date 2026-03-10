@@ -121,6 +121,17 @@ else
     warn "wl-color-picker ya existe, omitiendo"
 fi
 
+# Graphite GTK theme
+if [ ! -d ~/.local/share/themes/Graphite-Dark ]; then
+    TMP_GRAPHITE=$(mktemp -d)
+    git clone --depth=1 https://github.com/vinceliuice/Graphite-gtk-theme.git "$TMP_GRAPHITE/graphite"
+    cd "$TMP_GRAPHITE/graphite" && ./install.sh && cd ~
+    rm -rf "$TMP_GRAPHITE"
+    success "Graphite GTK theme instalado"
+else
+    warn "Graphite ya instalado, omitiendo"
+fi
+
 # SilentSDDM
 if [ ! -d /usr/share/sddm/themes/silent ]; then
     TMP_SDDM=$(mktemp -d)
@@ -133,9 +144,6 @@ if [ ! -d /usr/share/sddm/themes/silent ]; then
 else
     warn "SilentSDDM ya instalado, omitiendo clone"
 fi
-
-# Íconos Papirus-Dark
-gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
 
 # ─── [8/8] ZSH + OhMyPosh + Dotfiles ─────────────────────────────────────────
 info "[8/8] Configurando ZSH + OhMyPosh + Dotfiles"
@@ -174,6 +182,11 @@ chmod +x ~/.config/waybar/scripts/*.sh  2>/dev/null || warn "No hay scripts en w
 chmod +x ~/.config/rofi/launchers/*.sh  2>/dev/null || warn "No hay scripts en rofi/launchers"
 chmod +x ~/.config/rofi/powermenu/*.sh  2>/dev/null || warn "No hay scripts en rofi/powermenu"
 
+# Apariencia GTK
+gsettings set org.gnome.desktop.interface gtk-theme    'Graphite-Dark'
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+gsettings set org.gnome.desktop.interface icon-theme   'Papirus-Dark'
+
 # Copiar config SDDM y wallpaper (requiere stow previo)
 sudo cp ~/.config/sddm/silent/blueprint-slate.conf /usr/share/sddm/themes/silent/configs/
 sudo cp ~/.config/backgrounds/001.jpg              /usr/share/sddm/themes/silent/backgrounds/
@@ -189,33 +202,7 @@ GreeterEnvironment=QML2_IMPORT_PATH=/usr/share/sddm/themes/silent/components/,QT
 Current=silent
 SDDMEOF
 
-# Rofi themes (adi1090x) — setup.sh es idempotente pero evitamos clonar si ya existe
-if [ ! -d ~/.config/rofi/launchers ]; then
-    TMP_ROFI=$(mktemp -d)
-    git clone --depth=1 https://github.com/adi1090x/rofi.git "$TMP_ROFI/rofi"
-    cd "$TMP_ROFI/rofi"
-    chmod +x setup.sh
-    ./setup.sh
-    cd ~
-    rm -rf "$TMP_ROFI"
-    success "Temas rofi instalados"
-else
-    warn "Temas rofi ya instalados, omitiendo"
-fi
-
-# Color scheme Blueprint Slate para rofi
-mkdir -p ~/.config/rofi/colors
-cat > ~/.config/rofi/colors/blueprint-slate.rasi << 'EOF'
-* {
-    background:     #1c2127FF;
-    background-alt: #292c32FF;
-    foreground:     #c8d4dcFF;
-    selected:       #6878a0FF;
-    active:         #7ab87aFF;
-    urgent:         #c96a6aFF;
-    border:         #3d444dFF;
-}
-EOF
+sudo systemctl enable sddm
 
 # Plugins de Yazi (requiere dotfiles/package.toml)
 ya pkg install

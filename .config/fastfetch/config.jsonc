@@ -3,7 +3,7 @@
 
     // ─── Logo ────────────────────────────────────────────────────────────────
     "logo": {
-        "type": "file raw",
+        "type": "file",
         "source": "~/.config/fastfetch/mceron-ascii.txt",
         "padding": {
             "top": 1,
@@ -129,15 +129,13 @@
         {
             "type": "memory",
             "key": "  RAM",
-            "keyColor": "38;2;138;122;184",
-            "format": "{used} / {total}  \u001b[38;2;61;68;77m{used_percent:bar}\u001b[0m"
+            "keyColor": "38;2;138;122;184"
         },
         {
             "type": "disk",
             "key": "  Disk",
             "keyColor": "38;2;138;122;184",
-            "folders": "/",
-            "format": "{used} / {total}  \u001b[38;2;61;68;77m{used_percent:bar}\u001b[0m"
+            "folders": "/"
         },
         {
             "type": "battery",

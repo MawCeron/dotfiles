@@ -33,7 +33,7 @@
   ],
 
   "custom/logo": {
-    "format": "f0ec0",
+    "format": "󰣛",
     "tooltip": false
   },
 
@@ -98,15 +98,14 @@
   "sway/workspaces": {
     "format": "{icon}",
     "format-icons": {
-      "1": "",
-      "2": "",
-      "3": "",
-      "4": "",
-      "5": "",
-      "6": "",
-      "urgent": "",
-      "focused": "",
-      "default": ""
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "6": "",
+      "active": "",
+      "default": "" 
     },
     "persistent-workspaces": {
       "*": [1, 2, 3, 4, 5, 6]

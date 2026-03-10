@@ -74,27 +74,33 @@ window#waybar {
 /* ── Workspaces ───────────────────────────────────────────── */
 
 #workspaces button {
-    padding: 0 4px;
+    padding: 0 3px;
+    min-width: 0;
     color: #5a6570;
     background: transparent;
-    border-bottom: 2px solid transparent;
+    border: none;
+    box-shadow: none;
 }
 
 #workspaces button:hover {
     color: #c8d4dc;
-    background: #292c32;
-    border-radius: 8px;
+    background: transparent;
+    box-shadow: none;
 }
 
 #workspaces button.focused,
 #workspaces button.active {
     color: #c8d4dc;
-    border-bottom: 2px solid #95a1aa;
+    background: transparent;
+    border: none;
+    box-shadow: none;
 }
 
 #workspaces button.urgent {
     color: #c96a6a;
-    border-bottom: 2px solid #c96a6a;
+    background: transparent;
+    border: none;
+    box-shadow: none;
 }
 
 /* ── Ventana activa ───────────────────────────────────────── */

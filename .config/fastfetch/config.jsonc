@@ -29,8 +29,10 @@
                 "elapsed": "█",
                 "total":   "░"
             },
-            "borderLeft":  "",
-            "borderRight": "",
+            "border": {
+                "left":  "",
+                "right": ""
+            },
             "width": 10
         }
     },

@@ -202,8 +202,6 @@ GreeterEnvironment=QML2_IMPORT_PATH=/usr/share/sddm/themes/silent/components/,QT
 Current=silent
 SDDMEOF
 
-sudo systemctl enable sddm
-
 # Plugins de Yazi (requiere dotfiles/package.toml)
 ya pkg install
 # Zinit se instala automáticamente al primer arranque de zsh via .zshrc

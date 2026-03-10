@@ -305,8 +305,5 @@ source <(fzf --zsh)
 # Zoxide config para plugins zsh
 eval "$(zoxide init --cmd cd zsh)"
 
-# Tmuxifier config para plugins zsh
-eval "$(tmuxifier init -)"
-
 # Oh My Posh
 eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/blueprint-slate.omp.json)"

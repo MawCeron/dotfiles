@@ -3,7 +3,7 @@
 
     // ─── Logo ────────────────────────────────────────────────────────────────
     "logo": {
-        "type": "file",
+        "type": "file raw",
         "source": "~/.config/fastfetch/mceron-ascii.txt",
         "padding": {
             "top": 1,

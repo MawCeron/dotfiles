@@ -105,25 +105,6 @@ sudo cp -r fonts/* /usr/share/fonts/
 cd ~
 rm -rf SilentSDDM
 
-# Copiar config Blueprint Slate y wallpaper al tema
-sudo cp ~/.config/sddm/silent/blueprint-slate.conf /usr/share/sddm/themes/silent/configs/
-sudo cp ~/.config/backgrounds/001.jpg /usr/share/sddm/themes/silent/backgrounds/
-
-# Apuntar metadata.desktop al config Blueprint Slate
-sudo sed -i 's|^ConfigFile=.*|ConfigFile=configs/blueprint-slate.conf|' /usr/share/sddm/themes/silent/metadata.desktop
-
-# Configurar /etc/sddm.conf
-sudo tee /etc/sddm.conf > /dev/null << 'SDDMEOF'
-[General]
-InputMethod=qtvirtualkeyboard
-GreeterEnvironment=QML2_IMPORT_PATH=/usr/share/sddm/themes/silent/components/,QT_IM_MODULE=qtvirtualkeyboard
-
-[Theme]
-Current=silent
-SDDMEOF
-
-sudo systemctl enable sddm
-
 # Aplicar tema de íconos Papirus-Dark
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
 
@@ -150,6 +131,28 @@ chmod +x ~/.config/waybar/scripts/*.sh
 chmod +x ~/.config/rofi/launchers/*.sh
 chmod +x ~/.config/rofi/powermenu/*.sh
 # Zinit se instala automáticamente al primer arranque de zsh via .zshrc
+
+# Copiar config Blueprint Slate y wallpaper al tema SDDM (requiere stow previo)
+sudo cp ~/.config/sddm/silent/blueprint-slate.conf /usr/share/sddm/themes/silent/configs/
+sudo cp ~/.config/backgrounds/001.jpg /usr/share/sddm/themes/silent/backgrounds/
+
+# Apuntar metadata.desktop al config Blueprint Slate
+sudo sed -i 's|^ConfigFile=.*|ConfigFile=configs/blueprint-slate.conf|' /usr/share/sddm/themes/silent/metadata.desktop
+
+# Configurar /etc/sddm.conf
+sudo tee /etc/sddm.conf > /dev/null << 'SDDMEOF'
+[General]
+InputMethod=qtvirtualkeyboard
+GreeterEnvironment=QML2_IMPORT_PATH=/usr/share/sddm/themes/silent/components/,QT_IM_MODULE=qtvirtualkeyboard
+
+[Theme]
+Current=silent
+SDDMEOF
+
+sudo systemctl enable sddm
+
+# Logo ASCII para fastfetch (se incluye en dotfiles)
+mkdir -p ~/.config/fastfetch
 
 # Instalación de cliphist (requiere Go, que ya está instalado)
 export GOPATH="$HOME/go"

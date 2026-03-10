@@ -121,34 +121,6 @@ else
     warn "wl-color-picker ya existe, omitiendo"
 fi
 
-# Rofi themes (adi1090x) — setup.sh es idempotente pero evitamos clonar si ya existe
-if [ ! -d ~/.config/rofi/launchers ]; then
-    TMP_ROFI=$(mktemp -d)
-    git clone --depth=1 https://github.com/adi1090x/rofi.git "$TMP_ROFI/rofi"
-    cd "$TMP_ROFI/rofi"
-    chmod +x setup.sh
-    ./setup.sh
-    cd ~
-    rm -rf "$TMP_ROFI"
-    success "Temas rofi instalados"
-else
-    warn "Temas rofi ya instalados, omitiendo"
-fi
-
-# Color scheme Blueprint Slate para rofi
-mkdir -p ~/.config/rofi/colors
-cat > ~/.config/rofi/colors/blueprint-slate.rasi << 'EOF'
-* {
-    background:     #1c2127FF;
-    background-alt: #292c32FF;
-    foreground:     #c8d4dcFF;
-    selected:       #6878a0FF;
-    active:         #7ab87aFF;
-    urgent:         #c96a6aFF;
-    border:         #3d444dFF;
-}
-EOF
-
 # SilentSDDM
 if [ ! -d /usr/share/sddm/themes/silent ]; then
     TMP_SDDM=$(mktemp -d)
@@ -217,7 +189,33 @@ GreeterEnvironment=QML2_IMPORT_PATH=/usr/share/sddm/themes/silent/components/,QT
 Current=silent
 SDDMEOF
 
-sudo systemctl enable sddm
+# Rofi themes (adi1090x) — setup.sh es idempotente pero evitamos clonar si ya existe
+if [ ! -d ~/.config/rofi/launchers ]; then
+    TMP_ROFI=$(mktemp -d)
+    git clone --depth=1 https://github.com/adi1090x/rofi.git "$TMP_ROFI/rofi"
+    cd "$TMP_ROFI/rofi"
+    chmod +x setup.sh
+    ./setup.sh
+    cd ~
+    rm -rf "$TMP_ROFI"
+    success "Temas rofi instalados"
+else
+    warn "Temas rofi ya instalados, omitiendo"
+fi
+
+# Color scheme Blueprint Slate para rofi
+mkdir -p ~/.config/rofi/colors
+cat > ~/.config/rofi/colors/blueprint-slate.rasi << 'EOF'
+* {
+    background:     #1c2127FF;
+    background-alt: #292c32FF;
+    foreground:     #c8d4dcFF;
+    selected:       #6878a0FF;
+    active:         #7ab87aFF;
+    urgent:         #c96a6aFF;
+    border:         #3d444dFF;
+}
+EOF
 
 # Plugins de Yazi (requiere dotfiles/package.toml)
 ya pkg install

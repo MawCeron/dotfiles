@@ -151,9 +151,6 @@ function y() {
 # (estos directorios solo son agregados si existen)
 pathprepend "$HOME/bin" "$HOME/sbin" "$HOME/.local/bin" "$HOME/local/bin" "$HOME/.bin"
 
-# Agrega los paths de Go
-pathappend "$HOME/go" "$HOME/go/bin"
-
 # Add Tmuxifier to path
 pathappend "$HOME/.config/tmux/plugins/tmuxifier/bin"
 
@@ -307,3 +304,4 @@ eval "$(zoxide init --cmd cd zsh)"
 
 # Oh My Posh
 eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/blueprint-slate.omp.json)"
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
